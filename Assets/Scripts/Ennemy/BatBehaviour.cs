@@ -60,11 +60,11 @@ public class BatBehaviour : MonoBehaviour
         if (this._pv <= 0 && !this._destructionEnCours)
         {
             _animator.SetTrigger("Destruction");
-            GameManager.Instance.PlayerData.IncrScore(this._pointDestruction);
             this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            this.gameObject.GetComponent<EnnemyPatrol>().enabled = false;
-            GameObject.Destroy(this.transform.parent.gameObject, 0.5f);
+            this.gameObject.GetComponent<BatPatrol>().enabled = false;
+            GameObject.Destroy(this.transform.parent.gameObject, 0.5f); 
             this._destructionEnCours = true;
+            GameManager.Instance.PlayerData.IncrScore(this._pointDestruction);
         }
 
         if (Time.fixedTime > _tempsDebutInvulnerabilite + DelaisInvulnerabilite)

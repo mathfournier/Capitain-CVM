@@ -36,7 +36,9 @@ public class BatPatrol : MonoBehaviour
     /// </summary>
     private Animator _animator;
     private bool _estDowned = false;
-    private int _tempsDowned = 0;
+    private float _tempsDowned = 2f;
+    private float _tempsDebutDowned;
+
 
     // Start is called before the first frame update
     void Start()
@@ -49,23 +51,19 @@ public class BatPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_estDowned)   //Tentative de management pour l'arrêt de la chauve-souris durant le moment quelle est downed. 
-        {
-            _tempsDowned++;
-            if (_tempsDowned > 100)
-            {
-                _estDowned = false;
-            }
-        }
-        AnimatorStateInfo asi = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);  //Ne fonctionne pas. Alternative non plus
-        if (asi.IsName("Bat_Down"))
+
+        if (Time.fixedTime > _tempsDebutDowned + _tempsDowned)
+            _estDowned = false;
+
+        AnimatorStateInfo asi = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+        if (asi.IsName("Bat_Down") && !_estDowned)
         {
             Debug.Log("EST DOWNED");
             _estDowned = true;
-            _tempsDowned = 0;
+            _tempsDebutDowned = Time.fixedTime;
         }
         
-        if(!_estDowned)
+        if(!_estDowned && !asi.IsName("Bat_Mort"))
         {
             Vector3 direction = _cible.position - this.transform.position;
             this.transform.Translate(direction.normalized * _vitesse * Time.deltaTime, Space.World);
