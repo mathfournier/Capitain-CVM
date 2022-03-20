@@ -47,5 +47,11 @@ public class PlayerBehaviour : MonoBehaviour
             GameObject.Destroy(this.gameObject);
             GameManager.Instance.PlayerData.DecrVie();
         }
+
+        if (collision.gameObject.CompareTag("FinDeNiveau"))
+        {
+            GameManager.Instance.PlayerData.IncrNiveau();
+            Debug.Log("Incrémentation");
+        }
     }
 }

@@ -55,7 +55,7 @@ public class BatPatrol : MonoBehaviour
         if (Time.fixedTime > _tempsDebutDowned + _tempsDowned)
             _estDowned = false;
 
-        AnimatorStateInfo asi = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo asi = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);   /* https://stackoverflow.com/questions/34846287/get-name-of-current-animation-state Source pour la ligne 58*/  
         if (asi.IsName("Bat_Down") && !_estDowned)
         {
             Debug.Log("EST DOWNED");

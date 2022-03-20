@@ -42,6 +42,10 @@ public class PlayerData
     /// </summary>
     private int _score;
     /// <summary>
+    /// Représente le niveau atteint
+    /// </summary>
+    private int _niveau;
+    /// <summary>
     /// Liste des coffres ouverts dans le jeu
     /// </summary>
     private List<string> _chestOpenList;
@@ -67,6 +71,7 @@ public class PlayerData
     public int Energie { get { return this._energie; } }
     public int Vie { get { return this._vie; } }
     public int Score { get { return this._score; } }
+    public int Niveau { get { return this._niveau; } }
     public string[] ListeCoffreOuvert { get { return this._chestOpenList.ToArray(); } }
 
     public PlayerData()
@@ -74,6 +79,7 @@ public class PlayerData
         this._vie = 0;
         this._energie = 0;
         this._score = 0;
+        this._niveau = 0;
         this._volumeGeneral = 0;
         this._volumeMusique = 0;
         this._volumeEffet = 0;
@@ -83,7 +89,7 @@ public class PlayerData
         this._chestOpenList = new List<string>();
     }
 
-    public PlayerData(int vie = 1, int energie = 2, int score = 0,
+    public PlayerData(int vie = 1, int energie = 2, int score = 0, int niveau = 0,
         float volumeGeneral = 0, float volumeMusique = 0, float volumeEffet = 0,
         System.Action uiPerteEnergie = null, System.Action uiPerteVie = null,
         System.Action gameOver = null, List<string> ChestList = null)
@@ -91,6 +97,8 @@ public class PlayerData
         this._vie = vie;
         this._energie = energie;
         this._score = score;
+        this._niveau = niveau;
+        PlayerPrefs.SetInt("AcutalLvl", niveau);
         this._volumeGeneral = volumeGeneral;
         this._volumeMusique = volumeMusique;
         this._volumeEffet = volumeEffet;
@@ -156,6 +164,15 @@ public class PlayerData
     {
         this._vie += gain;
         this.UIPerteVie();
+    }
+
+    /// <summary>
+    /// Permet d'augmenter le niveau atteint
+    /// </summary>
+    /// <param name="gain">Gain d'augmentation</param>
+    public void IncrNiveau(int gain = 1)
+    {
+        this._niveau += gain;
     }
 
     /// <summary>

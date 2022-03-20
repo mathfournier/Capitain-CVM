@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            this._playerData = new PlayerData(4, 2);
+            this._playerData = new PlayerData(3, 4);
             SaveData();
         }
     }

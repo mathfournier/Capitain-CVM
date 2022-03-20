@@ -4,6 +4,23 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtonAction : MonoBehaviour
 {
+    public Button[] lvlButtons;
+        
+   void Start() 
+    {
+        int ActualLvl = PlayerPrefs.GetInt("AcutalLvl", 1);    /* https://www.youtube.com/watch?v=vpbPd6jNEBs Source pour le level selection */
+
+        for (int i = 0; i < lvlButtons.Length; i++)
+        {
+            lvlButtons[i].interactable = false;
+        }
+
+        for(int i = 0; i < ActualLvl; i++)
+        {
+            lvlButtons[i].interactable = true;
+        }
+    }
+
     /// <summary>
     /// Permet d'afficher un panel transmis en paramètre
     /// </summary>
