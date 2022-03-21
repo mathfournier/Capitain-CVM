@@ -26,6 +26,18 @@ public class ChestInteraction : BaseInteraction
     private Sprite _coffreOuvert;
 
     /// <summary>
+    /// Détermine si bouteille
+    /// </summary>
+    [SerializeField]
+    private bool _collectable1;
+
+    /// <summary>
+    /// Détermine si porcinet
+    /// </summary>
+    [SerializeField]
+    private bool _collectable2;
+
+    /// <summary>
     /// Nom du coffre utiliser dans le fichier de sauvegarde
     /// Le nom est autogénéré dans la méthode Start
     /// </summary>
@@ -51,6 +63,17 @@ public class ChestInteraction : BaseInteraction
             this.gameObject.GetComponent<SpriteRenderer>().sprite = _coffreOuvert;
             this.ArreterInteraction();
             GameManager.Instance.PlayerData.AjouterCoffreOuvert(_name);
+
+
+        }
+
+        if (this._collectable1)
+        {
+            PlayerPrefs.SetInt("Collectable1", 1);
+        }
+        if (this._collectable2)
+        {
+            PlayerPrefs.SetInt("Collectable2", 1);
         }
     }
 }

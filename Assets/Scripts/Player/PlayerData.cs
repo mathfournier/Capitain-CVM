@@ -46,6 +46,14 @@ public class PlayerData
     /// </summary>
     private int _niveau;
     /// <summary>
+    /// Représente le collectable bouteille
+    /// </summary>
+    private int _collectable1;
+    /// <summary>
+    /// Représente le collectable porcinet
+    /// </summary>
+    private int _collectable2;
+    /// <summary>
     /// Liste des coffres ouverts dans le jeu
     /// </summary>
     private List<string> _chestOpenList;
@@ -72,6 +80,8 @@ public class PlayerData
     public int Vie { get { return this._vie; } }
     public int Score { get { return this._score; } }
     public int Niveau { get { return this._niveau; } }
+    public int Collectable1 { get { return this._collectable1; } }
+    public int Collectable2 { get { return this._collectable2; } }
     public string[] ListeCoffreOuvert { get { return this._chestOpenList.ToArray(); } }
 
     public PlayerData()
@@ -80,6 +90,8 @@ public class PlayerData
         this._energie = 0;
         this._score = 0;
         this._niveau = 0;
+        this._collectable1 = 0;
+        this._collectable2 = 0;
         this._volumeGeneral = 0;
         this._volumeMusique = 0;
         this._volumeEffet = 0;
@@ -90,7 +102,8 @@ public class PlayerData
     }
 
     public PlayerData(int vie = 1, int energie = 2, int score = 0, int niveau = 0,
-        float volumeGeneral = 0, float volumeMusique = 0, float volumeEffet = 0,
+        int collectable1 = 0, int collectable2 = 0, float volumeGeneral = 0,
+        float volumeMusique = 0, float volumeEffet = 0,
         System.Action uiPerteEnergie = null, System.Action uiPerteVie = null,
         System.Action gameOver = null, List<string> ChestList = null)
     {
@@ -99,6 +112,11 @@ public class PlayerData
         this._score = score;
         this._niveau = niveau;
         PlayerPrefs.SetInt("AcutalLvl", niveau);
+        this._collectable1 = collectable1;
+        PlayerPrefs.SetInt("Collectable1", collectable1);
+        this._collectable2 = collectable2;
+        PlayerPrefs.SetInt("Collectable2", collectable2);
+
         this._volumeGeneral = volumeGeneral;
         this._volumeMusique = volumeMusique;
         this._volumeEffet = volumeEffet;

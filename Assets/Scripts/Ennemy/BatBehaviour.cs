@@ -11,11 +11,6 @@ public class BatBehaviour : MonoBehaviour
     [SerializeField]
     private int _pv = 2;
     /// <summary>
-    /// Angle de tolérange pour le calcul du saut sur la tête
-    /// </summary>
-    [SerializeField]
-    private float _toleranceAngle = 1.5f;
-    /// <summary>
     /// Décrit la durée de l'invulnaribilité
     /// </summary>
     public const float DelaisInvulnerabilite = 1f;
@@ -44,10 +39,25 @@ public class BatBehaviour : MonoBehaviour
     /// Défini si l'objet est down et prêt a etre attaqué
     /// </summary>
     private bool _estDowned = false;
-    private float _timeDowned = 5f;
-    private float _timeEntreAttaque = 2.5f;
+    /// <summary>
+    /// Défini le temps que la chauve souris est down
+    /// </summary
+    private float _timeDowned = 3f;
+    /// <summary>
+    /// Défini le temps entre les attaques pour la chauve souris
+    /// </summary
+    private float _timeEntreAttaque = 1.5f;
+    /// <summary>
+    /// Représente le temps où la chauve souris à été down.
+    /// </summary
     private float _tempsDebutDowned;
+    /// <summary>
+    /// Détermine si la chauve-souris à été attaqué
+    /// </summary
     private bool _wasAttacked = false;
+    /// <summary>
+    /// Détermine si l'utilisateur peux attaqué la chauve-souris
+    /// </summary
     private bool _canAttack = false;
 
     private void Start()

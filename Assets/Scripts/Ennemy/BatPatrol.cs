@@ -35,8 +35,17 @@ public class BatPatrol : MonoBehaviour
     /// Réfère à l'animator du GO
     /// </summary>
     private Animator _animator;
+    /// <summary>
+    /// Défini si la chauve-souris est down
+    /// </summary
     private bool _estDowned = false;
-    private float _tempsDowned = 2f;
+    /// <summary>
+    /// Défini le temps que la chauve souris est down
+    /// </summary
+    private float _tempsDowned = 3f;
+    /// <summary>
+    /// Représente le temps où la chauve souris à été down.
+    /// </summary
     private float _tempsDebutDowned;
 
 
@@ -58,7 +67,7 @@ public class BatPatrol : MonoBehaviour
         AnimatorStateInfo asi = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);   /* https://stackoverflow.com/questions/34846287/get-name-of-current-animation-state Source pour la ligne 58*/  
         if (asi.IsName("Bat_Down") && !_estDowned)
         {
-            Debug.Log("EST DOWNED");
+            Debug.Log("Bat Is Down");
             _estDowned = true;
             _tempsDebutDowned = Time.fixedTime;
         }

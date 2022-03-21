@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class FinDeNiveau : MonoBehaviour
 {
+    /// <summary>
+    /// Représente la prochaine scène (Par rapport au build)
+    /// </summary
     public int prochaineScene;
 
     void Start()

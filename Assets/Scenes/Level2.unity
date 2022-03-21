@@ -832,7 +832,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 18
+      m_TileSpriteIndex: 24
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -982,9 +982,8 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: -6411942188729546641, guid: 2f73f902422c817448fe68860d8d99fa,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1888837539432032468, guid: 2f73f902422c817448fe68860d8d99fa,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
@@ -998,8 +997,9 @@ Tilemap:
   - m_RefCount: 5
     m_Data: {fileID: -3325237663468503850, guid: 2f73f902422c817448fe68860d8d99fa,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1888837539432032468, guid: 2f73f902422c817448fe68860d8d99fa,
+      type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 8862432624271434952, guid: 2f73f902422c817448fe68860d8d99fa,
       type: 3}
@@ -21003,6 +21003,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140561369129623423, guid: f20a7ae96a5a75443b9dcf02a041007c,
+        type: 3}
+      propertyPath: _collectable1
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f20a7ae96a5a75443b9dcf02a041007c, type: 3}

@@ -16,7 +16,6 @@ public class PanneauInteraction : BaseInteraction
 
     public override void DoAction()
     {
-        Debug.Log("DoAction");
         _messageBox.gameObject.SetActive(true);
     }
 
